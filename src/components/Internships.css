@@ -1,0 +1,47 @@
+.internships-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.internship-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.internship-card {
+  width: 280px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.internship-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.internship-card h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.internship-card p {
+  color: #444;
+  font-size: 14px;
+}
+
+.upcoming-title {
+  margin-top: 50px;
+  color: #333;
+}
+
+.upcoming-card {
+  background-color: #f8f9fa;
+  border: 1px dashed #007bff;
+}
