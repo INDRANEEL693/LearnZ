@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer style={styles.footer}>
-      <p>© 2025 Core-Next. All Rights Reserved.</p>
+      <p>© 2025 Learn Z. All Rights Reserved.</p>
     </footer>
   );
 }

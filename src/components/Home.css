@@ -96,8 +96,22 @@
     font-size: 0.9rem;
   }
 
-  .cta-button {
-    padding: 6px 16px;
-    font-size: 0.8rem;
-  }
+ .cta-button {
+  display: inline-block;
+  background-color: #ffeb3b;
+  color: #0d47a1;
+  font-weight: 700;
+  font-size: 1.1rem; /* Increased font size */
+  padding: 16px 36px; /* Increased padding */
+  border-radius: 35px; /* Slightly larger rounded corners */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.cta-button:hover {
+  background-color: #fff176;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
 }
