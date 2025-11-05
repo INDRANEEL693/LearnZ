@@ -9,15 +9,15 @@ const Courses = () => {
   const courses = [
     {
       title: "C",
-      description: "Learn the fundamentals of C programming, data types, and control structures.",
+      description: "Learn the fundamentals of C programming",
     },
     {
       title: "Java",
-      description: "Master object-oriented programming, collections, and Java development tools.",
+      description: "Master object-oriented programming with applications",
     },
     {
       title: "Python",
-      description: "Work on Python basics, data analysis, and scripting for real-world projects.",
+      description: "Work on Python basics and libraries like numpy, pandas",
     },
   ];
 
