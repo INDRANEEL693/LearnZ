@@ -11,22 +11,34 @@ const Apply = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [domain, setDomain] = useState(prefillDomain);
-  const [duration, setDuration] = useState(""); // User will select manually
+  const [duration, setDuration] = useState(""); // Duration (months/weeks)
+  const [phoneNumber, setPhoneNumber] = useState(""); // Phone number
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Update domain when navigating from internship card
   useEffect(() => {
     if (prefillDomain) setDomain(prefillDomain);
   }, [prefillDomain]);
 
+  const phoneRegex = /^[0-9]{10}$/; // Example for 10-digit phone number validation
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!phoneRegex.test(phoneNumber)) {
+      alert("❌ Please enter a valid phone number.");
+      return;
+    }
+
+    setLoading(true);
 
     const formData = {
       name,
       email,
       domain,
       duration,
+      phoneNumber,
       message,
     };
 
@@ -47,16 +59,22 @@ const Apply = () => {
       setName("");
       setEmail("");
       setDomain(prefillDomain); // Keep domain filled after submit
+      setPhoneNumber("");
       setDuration("");
       setMessage("");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("❌ There was an issue submitting your application.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="apply-container">
+      {/* Price tag at the top right */}
+      <div className="price-tag">399/-</div>
+
       <h1>Application</h1>
       <form onSubmit={handleSubmit} className="apply-form">
         <label>
@@ -87,17 +105,30 @@ const Apply = () => {
             type="text"
             value={domain}
             readOnly
+            title="Pre-filled based on your selected internship"
           />
         </label>
 
         <label>
           Phone No.:
           <input
+            type="text"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+            placeholder="Enter your phone number"
+          />
+        </label>
+
+        <label>
+          Duration:
+          <input
+            type="number"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
             required
+            placeholder="Duration of internship"
           />
-            
         </label>
 
         <label>
@@ -110,8 +141,8 @@ const Apply = () => {
           />
         </label>
 
-        <button type="submit" className="submit-btn">
-          Submit Application
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? "Submitting..." : "Submit Application"}
         </button>
       </form>
     </div>
